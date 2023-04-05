@@ -17,5 +17,5 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/health", check)
 	fmt.Println("Server starting")
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe("http://192.168.78.123:3000", nil);
 }
