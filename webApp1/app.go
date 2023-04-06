@@ -5,17 +5,14 @@ import (
 	"net/http"
 )
 
-func index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello")
-}
-
-func check(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Health check")
-}
-
 func main() {
-	http.HandleFunc("/", index)
-	http.HandleFunc("/health", check)
-	fmt.Println("Server starting")
-	http.ListenAndServe("http://192.168.78.123:3000", nil);
+	http.HandleFunc("/",sayHello);
+	PORT := "3001";
+	HOST := "localhost";	
+	fmt.Printf("Your server running on: http://%s:%s",HOST,PORT);
+	http.ListenAndServe(HOST+":"+PORT,nil);
+}
+
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello from Golang :)")
 }
