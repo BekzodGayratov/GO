@@ -36,3 +36,6 @@ func measure(g geometry){
 	fmt.Println(g.perim());
 }
 
+
+
+
